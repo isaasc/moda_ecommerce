@@ -1,24 +1,26 @@
 package com.moda.ecommerce.models;
 
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
+@Entity
 public class Produto {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+	private Integer id;
 	private String descricao;
 	private double preco;
-	private Fornecedor fornecedor;
-	private Categoria categoria;
+	private Integer fornecedor;
+	private Integer categoria;
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -38,19 +40,19 @@ public class Produto {
 		this.preco = preco;
 	}
 
-	public Fornecedor getFornecedor() {
+	public Integer getFornecedor() {
 		return fornecedor;
 	}
 
-	public void setFornecedor(Fornecedor fornecedor) {
+	public void setFornecedor(Integer fornecedor) {
 		this.fornecedor = fornecedor;
 	}
 
-	public Categoria getCategoria() {
+	public Integer getCategoria() {
 		return categoria;
 	}
 
-	public void setCategoria(Categoria categoria) {
+	public void setCategoria(Integer categoria) {
 		this.categoria = categoria;
 	}
 
