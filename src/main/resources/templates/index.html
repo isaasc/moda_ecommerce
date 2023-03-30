@@ -22,5 +22,29 @@
 	</div>
 
 	<h1>Tela de produtos</h1>
+	<div>
+		<a href="/produto/masculino">Masculino</a> 
+		<a href="/produto/feminino">Feminino</a>
+		<a href="/produto/unissex">Unissex</a>
+	</div>
+
+	<table>
+		<thead>
+			<th>Id</th>
+			<th>Descricao</th>
+			<th>Preco</th>
+			<th>Id Fornecedor</th>
+			<th>Id Categoria</th>
+		</thead>
+		<tbody>
+			<tr th:each="produto: ${produtoss}">
+				<td th:text="${produto.getId()}"></td>
+				<td th:text="${produto.getDescricao()}"></td>
+				<td th:text="${produto.getPreco()}"></td>
+				<td th:text="${produto.getFornecedor()}"></td>
+				<td th:text="${produto.getCategoria()}"></td>
+			</tr>
+		</tbody>
+	</table>
 </body>
 </html>

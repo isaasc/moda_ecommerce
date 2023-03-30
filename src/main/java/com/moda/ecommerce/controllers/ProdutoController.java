@@ -22,10 +22,37 @@ public class ProdutoController {
 	private ProdutoRepository produtoRepository;
 
 	@GetMapping("")
-	public ModelAndView getTodosProdutosEAbrePaginaDeProduto() {
+	public ModelAndView getTodosProdutos() {
 		ModelAndView model = new ModelAndView("create/createProduto");
 		List<Produto> listaProduto = produtoRepository.findAll();
 		model.addObject("listaProdutos", listaProduto);
+		return model;
+	}
+	
+	@GetMapping("/masculino")
+	public ModelAndView getCategoriaMasculino() {
+		ModelAndView model = new ModelAndView("index");
+		List<Produto> listaProduto = produtoRepository.findAll();
+		Stream<Produto> listaMasculino = listaProduto.stream().filter(produto -> produto.getCategoria() == 1);
+		model.addObject("produtoss", listaMasculino);
+		return model;
+	}
+	
+	@GetMapping("/feminino")
+	public ModelAndView getCategoriaFeminino() {
+		ModelAndView model = new ModelAndView("index");
+		List<Produto> listaProduto = produtoRepository.findAll();
+		Stream<Produto> listaFeminino = listaProduto.stream().filter(produto -> produto.getCategoria() == 2);
+		model.addObject("produtoss", listaFeminino);
+		return model;
+	}
+	
+	@GetMapping("/unissex")
+	public ModelAndView getCategoriaUnissex() {
+		ModelAndView model = new ModelAndView("index");
+		List<Produto> listaProduto = produtoRepository.findAll();
+		Stream<Produto> listaUnissex = listaProduto.stream().filter(produto -> produto.getCategoria() == 3);
+		model.addObject("produtoss", listaUnissex);
 		return model;
 	}
 
@@ -34,4 +61,5 @@ public class ProdutoController {
 		produtoRepository.save(objProduto);
 		return "redirect:/";
 	}
+
 }
