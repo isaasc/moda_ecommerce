@@ -33,8 +33,8 @@ public class ProdutoController {
 	public ModelAndView getCategoriaMasculino() {
 		ModelAndView model = new ModelAndView("index");
 		List<Produto> listaProduto = produtoRepository.findAll();
-		Stream<Produto> listaMasculino = listaProduto.stream().filter(produto -> produto.getCategoria() == 1);
-		model.addObject("produtoss", listaMasculino);
+		Stream<Produto> produtosMasculinos = listaProduto.stream().filter(produto -> produto.getCategoria() == 1);
+		model.addObject("produtosFiltrados", produtosMasculinos);
 		return model;
 	}
 	
@@ -42,8 +42,8 @@ public class ProdutoController {
 	public ModelAndView getCategoriaFeminino() {
 		ModelAndView model = new ModelAndView("index");
 		List<Produto> listaProduto = produtoRepository.findAll();
-		Stream<Produto> listaFeminino = listaProduto.stream().filter(produto -> produto.getCategoria() == 2);
-		model.addObject("produtoss", listaFeminino);
+		Stream<Produto> produtosFemininos = listaProduto.stream().filter(produto -> produto.getCategoria() == 2);
+		model.addObject("produtosFiltrados", produtosFemininos);
 		return model;
 	}
 	
@@ -51,8 +51,8 @@ public class ProdutoController {
 	public ModelAndView getCategoriaUnissex() {
 		ModelAndView model = new ModelAndView("index");
 		List<Produto> listaProduto = produtoRepository.findAll();
-		Stream<Produto> listaUnissex = listaProduto.stream().filter(produto -> produto.getCategoria() == 3);
-		model.addObject("produtoss", listaUnissex);
+		Stream<Produto> produtosUnissex = listaProduto.stream().filter(produto -> produto.getCategoria() == 3);
+		model.addObject("produtosFiltrados", produtosUnissex);
 		return model;
 	}
 

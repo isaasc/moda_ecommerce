@@ -3,15 +3,34 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Categoria</title>
 </head>
 <body>
+	<div class="container">
+		<a type="button" href="/">Voltar</a>
+	</div>
+	
 	<form method="post" action="/categoria/createCategoria">
-		<label >Nome/Descrição Categoria:</label>
+		<label>Nome/Descrição Categoria:</label>
 		<p>
 			<input type="text" name="descricao" id="descricao">
 		<p>
-		<input type="submit" value="Salvar" />
+			<input type="submit" value="Salvar" />
 	</form>
+
+	<table>
+		<thead>
+			<th>Id</th>
+			<th>Descricao</th>
+
+		</thead>
+		<tbody>
+			<tr th:each="categoria : ${listaCategoria}">
+				<td th:text="${categoria.getId()}"></td>
+				<td th:text="${categoria.getDescricao()}"></td>
+
+			</tr>
+		</tbody>
+	</table>
 </body>
 </html>

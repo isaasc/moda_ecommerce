@@ -37,7 +37,7 @@
 			<th>Id Categoria</th>
 		</thead>
 		<tbody>
-			<tr th:each="produto: ${produtoss}">
+			<tr th:each="produto: ${produtosFiltrados}">
 				<td th:text="${produto.getId()}"></td>
 				<td th:text="${produto.getDescricao()}"></td>
 				<td th:text="${produto.getPreco()}"></td>

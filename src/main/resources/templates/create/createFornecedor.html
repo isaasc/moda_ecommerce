@@ -3,9 +3,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Fornecedor</title>
 </head>
 <body>
+
+	<div class="container">
+		<a type="button" href="/">Voltar</a>
+	</div>
+
 	<form method="post" action="/fornecedor/createFornecedor">
 		<p>
 			nome: <input type="text" name="nome" id="nome">
@@ -18,5 +23,23 @@
 		</p>
 		<input type="submit" value="Salvar" />
 	</form>
+	
+	<table>
+		<thead>
+			<th>Id</th>
+			<th>Nome</th>
+			<th>Endereço</th>
+			<th>Telefone</th>
+		</thead>
+		<tbody>
+			<tr th:each="fornecedor : ${listaFornecedor}">
+				<td th:text="${fornecedor.getId()}"></td>
+				<td th:text="${fornecedor.getNome()}"></td>
+				<td th:text="${fornecedor.getEndereco()}"></td>
+				<td th:text="${fornecedor.getTelefone()}"></td>
+			</tr>
+		</tbody>
+	</table>
+	
 </body>
 </html>

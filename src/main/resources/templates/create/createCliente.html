@@ -3,9 +3,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Cliente</title>
 </head>
 <body>
+	<div class="container">
+		<a type="button" href="/">Voltar</a>
+	</div>
+
 	<form method="post" action="/cliente/createCliente">
 		<p>
 			nome: <input type="text" name="nome" id="nome">
@@ -18,5 +22,22 @@
 		</p>
 		<input type="submit" value="Salvar" />
 	</form>
+
+	<table>
+		<thead>
+			<th>Id</th>
+			<th>Nome</th>
+			<th>Endereço</th>
+			<th>Telefone</th>
+		</thead>
+		<tbody>
+			<tr th:each="cliente : ${listaCliente}">
+				<td th:text="${cliente.getId()}"></td>
+				<td th:text="${cliente.getNome()}"></td>
+				<td th:text="${cliente.getEndereco()}"></td>
+				<td th:text="${cliente.getTelefone()}"></td>
+			</tr>
+		</tbody>
+	</table>
 </body>
 </html>
