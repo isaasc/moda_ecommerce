@@ -22,23 +22,5 @@
 	</div>
 
 	<h1>Tela de produtos</h1>
-	<table>
-		<thead>
-			<th>Id</th>
-			<th>Descricao</th>
-			<th>Preco</th>
-			<th>Id Fornecedor</th>
-			<th>Id Categoria</th>
-		</thead>
-		<tbody>
-			<tr th:each="produtos : ${listaProdutos}">
-				<td th:text="${produtos.getId()}"></td>
-				<td th:text="${produtos.getDescricao()}"></td>
-				<td th:text="${produtos.getPreco()}"></td>
-				<td th:text="${produtos.getFornecedor()}"></td>
-				<td th:text="${produtos.getCategoria()}"></td>
-			</tr>
-		</tbody>
-	</table>
 </body>
 </html>

@@ -6,6 +6,10 @@
 <title>Insert title here</title>
 </head>
 <body>
+
+	<div class="container">
+		<a type="button" href="/">Voltar</a>
+	</div>
 	<form method="post" action="/produto/createProduto">
 		<label>Nome/Descrição Categoria:</label>
 		<p>
@@ -28,5 +32,28 @@
 		<p>
 			<input type="submit" value="Salvar" />
 	</form>
+	
+	<button type="button" class="btn btn-dark" onclick="/produto/getMasculino">masculino</button>
+    <button type="button" class="btn btn-dark" onclick="buscarCategoria('feminino')">feminino</button>
+    <button type="button" class="btn btn-dark" onclick="buscarCategoria('unissex')">unissex</button>
+	
+	<table>
+		<thead>
+			<th>Id</th>
+			<th>Descricao</th>
+			<th>Preco</th>
+			<th>Id Fornecedor</th>
+			<th>Id Categoria</th>
+		</thead>
+		<tbody>
+			<tr th:each="produto : ${listaProdutos}">
+				<td th:text="${produto.getId()}"></td>
+				<td th:text="${produto.getDescricao()}"></td>
+				<td th:text="${produto.getPreco()}"></td>
+				<td th:text="${produto.getFornecedor()}"></td>
+				<td th:text="${produto.getCategoria()}"></td>
+			</tr>
+		</tbody>
+	</table>
 </body>
 </html>

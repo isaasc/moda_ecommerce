@@ -1,6 +1,7 @@
 package com.moda.ecommerce.controllers;
 
 import java.util.List;
+import java.util.stream.Stream;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,7 +20,7 @@ public class ProdutoController {
 
 	@Autowired
 	private ProdutoRepository produtoRepository;
-	
+
 	@GetMapping("")
 	public ModelAndView getTodosProdutosEAbrePaginaDeProduto() {
 		ModelAndView model = new ModelAndView("create/createProduto");
@@ -35,6 +36,13 @@ public class ProdutoController {
 	public String create(@ModelAttribute("listaProdutos") Produto objProduto) {
 		produtoRepository.save(objProduto);
 		return "redirect:/";
-		
 	}
+
+	@GetMapping("/getMasculino")
+	public Stream<Produto> getMasculino() {
+		List<Produto> listaProdutos = produtoRepository.findAll();
+		Stream<Produto> listaMasculino = listaProdutos.stream().filter(p -> p.getCategoria() == 1);
+		return listaMasculino;
+	}
+
 }
