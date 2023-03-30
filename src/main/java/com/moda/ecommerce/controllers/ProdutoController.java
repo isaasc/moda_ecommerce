@@ -24,11 +24,8 @@ public class ProdutoController {
 	@GetMapping("")
 	public ModelAndView getTodosProdutosEAbrePaginaDeProduto() {
 		ModelAndView model = new ModelAndView("create/createProduto");
-
 		List<Produto> listaProduto = produtoRepository.findAll();
-
 		model.addObject("listaProdutos", listaProduto);
-
 		return model;
 	}
 
@@ -37,12 +34,4 @@ public class ProdutoController {
 		produtoRepository.save(objProduto);
 		return "redirect:/";
 	}
-
-	@GetMapping("/getMasculino")
-	public Stream<Produto> getMasculino() {
-		List<Produto> listaProdutos = produtoRepository.findAll();
-		Stream<Produto> listaMasculino = listaProdutos.stream().filter(p -> p.getCategoria() == 1);
-		return listaMasculino;
-	}
-
 }
