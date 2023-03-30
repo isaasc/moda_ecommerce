@@ -5,7 +5,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.moda.ecommerce.models.Categoria;
 import com.moda.ecommerce.repositories.CategoriaRepository;
@@ -18,18 +17,13 @@ public class CategoriaController {
 	private CategoriaRepository categoriaRepository;
 
 	@GetMapping("")
-	public String getCategorias() {
+	public String sendToCategoria() {
 		return "create/createCategoria";
 	}
 	
-	@GetMapping("/index")
-	public String getIndex() {
-		return "index";
-	}
-	
-	@PostMapping("/create")
+	@PostMapping("/createCategoria")
 	public String create(Categoria categoria) {
 		categoriaRepository.save(categoria);
-		return "redirect:/categoria/index";
+		return "redirect:/";
 	}
 }
